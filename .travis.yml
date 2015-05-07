@@ -1,0 +1,31 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+
+# Whitelisting example
+branches:
+  only:
+    - master
+
+# install dependencies
+install:
+  - pip install -r requirements.txt
+
+# get email when travis builds
+notifications:
+  email:
+  recipients:
+  - ryancnap@gmail.com
+  on_success: always
+  on_failed: always
+
+# command to run tests
+script:
+  - "./functional_tests.py"
+
+after_success:
+  - coveralls

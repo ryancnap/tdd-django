@@ -1,11 +1,11 @@
 max-line-length: 120
 uses:
-	- django
-	- selenium
+  - django
+  - selenium
 
 autodetect: yes
 
 requirements:
-	requirements.txt
+  requirements.txt
 
 
