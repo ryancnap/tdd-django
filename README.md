@@ -2,4 +2,4 @@
 
 [![Build Status](https://travis-ci.org/ryancnap/tdd-django.svg)](https://travis-ci.org/ryancnap/tdd-django)
 
-![Code Health](https://landscape.io/github/ryancnap/tdd-django/master/landscape.svg?style=flat)](https://landscape.io/github/ryancnap/tdd-django/master)
+[![Code Health](https://landscape.io/github/ryancnap/tdd-django/master/landscape.svg?style=flat)](https://landscape.io/github/ryancnap/tdd-django/master)
