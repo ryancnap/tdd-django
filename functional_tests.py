@@ -28,4 +28,4 @@ class NewVisitorTest(unittest.TestCase):
 		# rest of test, comments, etc.
 
 if __name__ == '__main__':
-	unittest.main()
+	unittest.main(warnings='ignore')
