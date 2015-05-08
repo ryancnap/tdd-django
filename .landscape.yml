@@ -1,7 +1,6 @@
 max-line-length: 120
 uses:
   - django
-  - selenium
 
 autodetect: yes
 
