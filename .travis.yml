@@ -28,7 +28,7 @@ notifications:
 
 # command to run tests
 script:
-  - coverage run manage.py test functional_tests.py
+   - coverage run functional_tests.py
 #  - coverage run manage.py test functional_tests.py
 #  - coverage run manage.py test
   #- "./functional_tests.py"
