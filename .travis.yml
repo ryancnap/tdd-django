@@ -7,9 +7,9 @@ python:
   - "3.4"
 
 # Whitelisting example
-branches:
-  only:
-    - master
+#branches:
+#  only:
+#    - master
 
 # install dependencies
 install:
@@ -18,13 +18,14 @@ install:
 # get email when travis builds
 notifications:
   email:
-  recipients:
-  - ryancnap@gmail.com
-  on_success: always
-  on_failed: always
-
+    recipients:
+      - ryancnap@gmail.com
+    on_success: always
+    on_failure: always
+# use manage.py to start a local server
 # command to run tests
 script:
+  coverage run functional_tests.py
   - "./functional_tests.py"
 
 after_success:

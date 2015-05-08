@@ -2,7 +2,19 @@
 
 from selenium import webdriver
 
-browser = webdriver.Firefox(60)
-browser.get('http://localhost:8000')
+# this section added to satisfy Travis
+# enabless headless firefox
+# pyvirtualdisplay is a python wrapper for xvfb
+from pyvirtualdisplay import Display
 
-assert 'Django' in browser.title
+display = Display(visible = 0, size=(800, 600))
+display.start()
+
+browser = webdriver.Firefox()
+browser.get('http://www.google.com')
+
+assert 'Google' in browser.title
+
+# always fill your divits
+browser.close()
+display.stop()
