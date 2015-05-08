@@ -7,9 +7,9 @@ python:
   - "3.4"
 
 # Whitelisting example
-branches:
-  only:
-    - master
+#branches:
+#  only:
+#    - master
 
 # install dependencies
 install:
