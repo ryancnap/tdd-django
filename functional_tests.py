@@ -11,9 +11,9 @@ display = Display(visible = 0, size=(800, 600))
 display.start()
 
 browser = webdriver.Firefox()
-browser.get('http://localhost:8000')
+browser.get('http://www.google.com')
 
-assert 'Django' in browser.title
+assert 'Google' in browser.title
 
 # always fill your divits
 browser.close()

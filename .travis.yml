@@ -25,7 +25,6 @@ notifications:
 # use manage.py to start a local server
 # command to run tests
 script:
-  - "./manage.py"
   - "./functional_tests.py"
 
 after_success:
