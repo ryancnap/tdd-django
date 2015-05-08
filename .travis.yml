@@ -23,12 +23,13 @@ notifications:
     on_failure: always
 
 # use manage.py to start a local server
-before_script:
-  - python manage.py runserver
+# before_script:
+#  - python manage.py runserver
 
 # command to run tests
 script:
-  - coverage run functional_tests.py
+  - coverage run manage.py runserver test functional_tests.py
+#  - coverage run manage.py test
   #- "./functional_tests.py"
 
 after_script:
