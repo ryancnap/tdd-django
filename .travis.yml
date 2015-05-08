@@ -26,7 +26,7 @@ notifications:
 # command to run tests
 script:
   coverage run functional_tests.py
-  - "./functional_tests.py"
+  #- "./functional_tests.py"
 
 after_script:
   - coveralls
