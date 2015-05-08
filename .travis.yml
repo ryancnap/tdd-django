@@ -22,10 +22,10 @@ notifications:
       - ryancnap@gmail.com
     on_success: always
     on_failure: always
-  on_failed: always
-
+# use manage.py to start a local server
 # command to run tests
 script:
+  - "./manage.py"
   - "./functional_tests.py"
 
 after_success:
