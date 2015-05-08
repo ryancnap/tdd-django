@@ -28,5 +28,5 @@ script:
   coverage run functional_tests.py
   - "./functional_tests.py"
 
-after_success:
+after_script:
   - coveralls
