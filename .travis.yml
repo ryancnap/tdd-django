@@ -18,9 +18,10 @@ install:
 # get email when travis builds
 notifications:
   email:
-  recipients:
-  - ryancnap@gmail.com
-  on_success: always
+    recipients:
+      - ryancnap@gmail.com
+    on_success: always
+    on_failure: always
   on_failed: always
 
 # command to run tests
