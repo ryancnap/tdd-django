@@ -1,14 +1,15 @@
 #! /usr/bin/env python
 
-from pyvirtualdisplay import Display
+# TRAVIS: from pyvirtualdisplay import Display
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
 
 class NewVisitorTest(unittest.TestCase):
 
 	def setUp(self):
-		display = Display(visible = 0, size=(800, 600))
-		display.start()
+		# TRAVIS: display = Display(visible = 0, size=(800, 600))
+		# TRAVIS: display.start()
 
 		self.browser = webdriver.Firefox()
 		self.browser.implicitly_wait(3)
@@ -21,11 +22,29 @@ class NewVisitorTest(unittest.TestCase):
 		self.browser.get('http://localhost:8000')
 
 		# You notice the page title and header mention todo lists.
+		# TRAVIS: the below three lines will also fail on Travis.
 		self.assertIn('To-Do', self.browser.title)
-		self.fail('Remember to finish this test.')
+		header_text = self.browser.find_element_by_tag_name('h1').text
+		self.assertIn('To-Do', header_text)
 
 		# You are invited to enter a to-do item straight away.
-		# rest of test, comments, etc.
+		inputbox = self.browser.find_element_by_id('id_new_item')
+		self.assertEqual(
+			inputbox.get_attribute('placeholder'),
+			'Enter a to-do item'
+			)
+
+		# You enter 'Buy peacock feathers' into a text box
+		inputbox.send_keys(Keys.ENTER)
+
+		table = self.browser.find_element_by_id('id_list_table')
+		rows = table.find_elements_by_tag_name('tr')
+		self.assertTrue(
+			any(row.text == '1: Buy peacock feathers' for row in rows)
+			)
+
+		# There is still a text box inviting you to add another item.
+		self.fail('Finish the test!')
 
 if __name__ == '__main__':
 	unittest.main()
