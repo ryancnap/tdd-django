@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# TRAVIS: from pyvirtualdisplay import Display
+from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
@@ -8,8 +8,8 @@ import unittest
 class NewVisitorTest(unittest.TestCase):
 
 	def setUp(self):
-		# TRAVIS: display = Display(visible = 0, size=(800, 600))
-		# TRAVIS: display.start()
+		display = Display(visible = 0, size=(800, 600))
+		display.start()
 
 		self.browser = webdriver.Firefox()
 		self.browser.implicitly_wait(3)
@@ -23,6 +23,7 @@ class NewVisitorTest(unittest.TestCase):
 
 		# You notice the page title and header mention todo lists.
 		# TRAVIS: the below three lines will also fail on Travis.
+		# HAHA NOT ANYMORE FUCK YOU TRAVIS
 		self.assertIn('To-Do', self.browser.title)
 		header_text = self.browser.find_element_by_tag_name('h1').text
 		self.assertIn('To-Do', header_text)
