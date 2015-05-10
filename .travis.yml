@@ -23,7 +23,7 @@ notifications:
     on_failure: always
 
 # use manage.py to start a local server
-# before_script:
+before_script:
   - python manage.py runserver & 
 # doesn't work, travis hangs for ten minutes and errors build.
 
