@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+# This one's for Travis
 from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -8,6 +9,8 @@ import unittest
 class NewVisitorTest(unittest.TestCase):
 
 	def setUp(self):
+		# we need to tell pyvirtualdisplay to start;
+		# we would't have to do this if it weren't for Travis.
 		display = Display(visible = 0, size=(800, 600))
 		display.start()
 
