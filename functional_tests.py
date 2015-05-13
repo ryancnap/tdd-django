@@ -39,13 +39,15 @@ class NewVisitorTest(unittest.TestCase):
 			)
 
 		# You enter 'Buy peacock feathers' into a text box
+		inputbox.send_keys('Buy peacock feathers')
+
+		# When you hit enter, the page updates and now lists
+		# 1: Buy peacock feathers as an item in a to-do list table.
 		inputbox.send_keys(Keys.ENTER)
 
 		table = self.browser.find_element_by_id('id_list_table')
 		rows = table.find_elements_by_tag_name('tr')
-		self.assertTrue(
-			any(row.text == '1: Buy peacock feathers' for row in rows)
-			)
+		self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
 
 		# There is still a text box inviting you to add another item.
 		self.fail('Finish the test!')
